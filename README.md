@@ -5,7 +5,7 @@ for the Amplify Change funded project "Taking on the Legal and Policy Advocacy C
 
 **Live site:** [https://eachrights.github.io/srhr/]
 
-**Staff page:** [https://thrift-borg.github.io/srhr/admin.html]
+**Staff page:** [https://eachrights.github.io/srhr/admin.html]
 
 The staff page is deliberately not linked from anywhere on the public site. Share the address with staff
 directly, and keep it at the top of the Google Sheet so nobody has to remember it. It is **unlisted, not
