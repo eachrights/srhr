@@ -119,6 +119,8 @@
       <div class="status-note">💡 <strong>To update policy status:</strong> edit the Policies tab of the Google Sheet (approved staff only), then refresh this page. Step-by-step instructions are in the Admin Panel guide. No coding required.</div>
     </div>
 
+    <!-- BUDGET ANALYSIS is inserted here automatically by data/budget.js -->
+
     <!-- DISABILITY INCLUSION BRIEF (only rendered for counties with a brief) -->
     <div class="section section-gold no-print-if-empty" id="dib-section" style="display:none;padding:24px;border-radius:8px;margin-bottom:24px;">
       <div class="section-hd"><h2>Disability Inclusion in SRHR — County Brief</h2><span class="meta">EACHRights policy brief</span></div>
@@ -170,10 +172,6 @@
       <h3>Key SRHR Indicators</h3>
       <div id="key-stats"></div>
     </div>
-    <div class="chart-wrap no-print" id="budget-chart-wrap">
-      <h3>SRHR Budget Trend (KShs M)</h3>
-      <canvas id="budget-chart"></canvas>
-    </div>
     <div class="chart-wrap no-print">
       <h3>Policy Implementation</h3>
       <canvas id="impl-chart"></canvas>
@@ -208,6 +206,7 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 <script src="data/counties.js"></script>
+<script src="data/budget.js"></script>
 <script>
 (async function() {
 const params = new URLSearchParams(location.search);
@@ -403,16 +402,7 @@ document.getElementById('cso-strengths').innerHTML = C.cso_strengths.map(s=>`<di
 document.getElementById('cso-gaps').innerHTML = C.cso_gaps.map(g=>`<div class="cap-item gap">${esc(g)}</div>`).join('');
 document.getElementById('coordination').innerHTML = C.coordination.map(c=>`<div style="font-size:13px;color:var(--ink-mid);padding:3px 0;border-bottom:1px solid var(--rule);">• ${esc(c)}</div>`).join('');
 
-// Charts
-if (C.budget_trend && C.budget_trend.length) {
-  new Chart(document.getElementById('budget-chart'),{
-    type:'bar',
-    data:{labels:C.budget_trend.map(b=>b.fy),datasets:[{label:'KShs M',data:C.budget_trend.map(b=>b.allocation_m),backgroundColor:'#174F30',borderRadius:4}]},
-    options:{responsive:true,plugins:{legend:{display:false}},scales:{y:{ticks:{font:{size:11}},grid:{color:'#f0f0f0'}},x:{ticks:{font:{size:11}}}}}
-  });
-} else {
-  document.getElementById('budget-chart-wrap').innerHTML = '<h3>SRHR Budget Trend</h3><p style="font-size:13px;color:var(--ink-lt);">Budget trend data not yet verified for this county.</p>';
-}
+// Charts — the budget chart now lives in the Budget Analysis section (data/budget.js)
 // Exclude not-yet-assessed policies (impl_pct === null) from the implementation chart
 const assessedPolicies = C.policies.filter(p => typeof p.impl_pct === 'number');
 new Chart(document.getElementById('impl-chart'),{

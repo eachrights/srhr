@@ -8,7 +8,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
 <style>
 .intro-band{background:var(--white);padding:32px 48px;border-bottom:1px solid var(--rule);}
-.intro-band p{max-width:860px;font-size:16px;color:var(--ink-mid);line-height:1.8;}
+.intro-band p{width:100%;max-width:none;font-size:16px;color:var(--ink-mid);line-height:1.8;}
+@media (max-width:720px){.intro-band{padding:24px 20px;}}
 .intro-band .highlight{color:var(--green);font-weight:600;}
 .county-index{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;}
 .county-index a{display:inline-flex;align-items:center;gap:6px;padding:6px 16px;background:var(--green-lt);border:1px solid rgba(26,110,60,.2);border-radius:4px;font-size:14px;color:var(--green);font-weight:600;text-decoration:none;}
@@ -39,7 +40,7 @@
 
 <div class="hero-band">
   <div class="eyebrow">EACHRights · Amplify Change · Kenya</div>
-  <h1>SRHR Advocacy Data Portal</h1>
+  <h1>SRHR Project Advocacy Portal</h1>
   <p id="hero-tagline"></p>
   <div class="hero-meta">
     <span>Project Period: <strong id="project-period"></strong></span>
