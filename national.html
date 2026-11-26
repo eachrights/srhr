@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>National Education Budget | EACHRights Education Budget Tracker</title>
+<link rel="stylesheet" href="css/portal.css">
+</head>
+<body>
+<nav class="top-nav">
+  <div class="nav-brand" onclick="location.href='index.html'">
+    <div class="logo-dot">_</div>
+    <span>EACHRights Education Portal</span>
+  </div>
+  <div class="nav-links"><a href="index.html">Budget</a><a href="national.html" class="active">National</a><a href="county.html">Kilifi County</a><a href="resources.html">Resources</a></div>
+  <div class="nav-right">Updated: November 2026</div>
+</nav>
+<div class="hero-band">
+  <div class="eyebrow">EACHRights · OXFAM · Kenya</div>
+  <h1>National Education Budget</h1>
+  <p>National Treasury allocations for education, FY 2025/26 compared with FY 2026/27, and the basic education sub-programmes that reach schools and learners.</p>
+</div>
+<div class="kpis" id="kpis"></div>
+
+<!-- NATIONAL LINES -->
+<div class="section section-white" id="lines">
+  <div class="section-hd">
+    <h2>National Budget Lines</h2>
+    <span class="meta">KSh billion, FY 2025/26 vs FY 2026/27</span>
+  </div>
+  <p class="lede">Programmes and lines with a figure in both years. The bars show the change in KSh billion: green is an increase, red is a cut. Bracketed numbers such as <a href="#src-1">[1]</a> open the source document in a new tab (the <a href="#sources">full source list</a> is at the bottom); ¶ is the paragraph number and p. the page.</p>
+
+  <div class="chart" style="margin-bottom:24px">
+    <p class="chart-title">Budget lines, year against year</p>
+    <p class="chart-sub">Bar length shows KSh billion, ordered by the 2026/27 figure. Both bars on a row use the same scale.</p>
+    <div class="legend"><span><i style="background:#9aa9a1"></i>2025/26</span><span><i style="background:var(--green,#1A6E3C)"></i>2026/27</span></div>
+    <div class="bars" id="chart-lines" role="img" aria-label="Paired bars comparing 2025/26 and 2026/27 for each national education budget line"></div>
+  </div>
+
+  <div class="chart" style="margin-bottom:24px">
+    <p class="chart-title">Change in each line, KSh billion</p>
+    <p class="chart-sub">Green is an increase, red is a cut.</p>
+    <div class="bars" id="chart-lines-chg" role="img" aria-label="Diverging bars showing the change in KSh billion for each national budget line"></div>
+  </div>
+
+  <div class="sort-tools" role="group" aria-label="Sort lines">
+    <button type="button" data-sort="v26" aria-pressed="true">Largest in 2026/27</button>
+    <button type="button" data-sort="chg" aria-pressed="false">Biggest increase</button>
+    <button type="button" data-sort="pct" aria-pressed="false">Biggest % change</button>
+  </div>
+  <div class="tbl-wrap">
+    <table class="policy-table">
+      <thead><tr><th>Line</th><th class="n">2025/26</th><th class="n">2026/27</th><th class="n">Change</th><th class="n">% Change</th><th>Change in KSh bn</th><th>Sources</th></tr></thead>
+      <tbody id="lines-body"></tbody>
+    </table>
+  </div>
+
+  <h3 class="panel-title">Vote Heads</h3>
+  <div class="two-col" style="margin-bottom:20px">
+    <div class="chart">
+      <p class="chart-title">Vote heads, year against year</p>
+      <p class="chart-sub">KSh billion. Higher Education, Basic Education and TVET for 2025/26 are approximate.</p>
+      <div class="legend"><span><i style="background:#9aa9a1"></i>2025/26</span><span><i style="background:var(--green,#1A6E3C)"></i>2026/27</span></div>
+      <div class="bars" id="chart-votes" role="img" aria-label="Paired bars comparing 2025/26 and 2026/27 for each vote head"></div>
+    </div>
+    <div class="chart">
+      <p class="chart-title">Who gets the 2026/27 education money</p>
+      <p class="chart-sub" id="votes-sub"></p>
+      <div class="split-bar" id="votes-split" role="img" aria-label="Share of the 2026/27 education budget by vote head"></div>
+      <div class="split-key" id="votes-key"></div>
+    </div>
+  </div>
+  <div class="tbl-wrap">
+    <table class="policy-table">
+      <thead><tr><th>Vote head</th><th class="n">2025/26</th><th class="n">2026/27</th><th class="n">Change</th><th class="n">% Change</th><th>Sources</th></tr></thead>
+      <tbody id="votes-body"></tbody>
+    </table>
+  </div>
+  <div class="callout"><strong>Treat the 2025/26 figures for Higher Education, Basic Education and TVET as approximate.</strong> They are National Assembly committee proposals from May 2025, reported by the Daily Nation <a href="#src-5">[5]</a>, not the final budget, so the changes shown are indicative.</div>
+
+  <h3 class="panel-title">Lines Reported in One Year Only</h3>
+  <div class="tbl-wrap">
+    <table class="policy-table">
+      <thead><tr><th>Line</th><th class="n">2025/26</th><th class="n">2026/27</th><th>Sources</th></tr></thead>
+      <tbody id="oneyear-body"></tbody>
+    </table>
+  </div>
+  <p class="src">National lines and vote heads: FY 2026/27 figures are from the National Treasury Budget Statement delivered on 11 June 2026 <a href="#src-1">[1]</a>. FY 2025/26 figures are from the Parliament of Kenya report on the 2025 Budget Day <a href="#src-2">[2]</a> and, where that report is silent, Capital FM <a href="#src-4">[4]</a>. See the <a href="#sources">source notes</a> below for where the sources differ.</p>
+</div>
+
+<!-- BASIC EDUCATION -->
+<div class="section section-gold" id="basic">
+  <div class="section-hd">
+    <h2>Basic Education Sub-Programmes</h2>
+    <span class="meta">KSh million, Basic Education Budget Brief FY2026/27</span>
+  </div>
+  <p class="lede">Several lines that reach learners directly are cut, including school health, nutrition and meals (down 38.8%) and Free Primary Education (down 8.1%).</p>
+
+  <div class="two-col" style="margin-bottom:24px">
+    <div class="chart">
+      <p class="chart-title">Change by sub-programme group</p>
+      <p class="chart-sub">Percentage change in the sum of each group's lines, 2025/26 to 2026/27.</p>
+      <div class="bars" id="chart-groups" role="img" aria-label="Diverging bars showing the percentage change for each group of basic education sub-programmes"></div>
+    </div>
+    <div class="chart">
+      <p class="chart-title">Biggest cuts and increases, by KSh million</p>
+      <p class="chart-sub">Change in money terms for the five largest cuts and five largest increases.</p>
+      <div class="bars" id="chart-top" role="img" aria-label="Diverging bars showing the five largest cuts and five largest increases in KSh million"></div>
+    </div>
+  </div>
+
+  <div class="chart" style="margin-bottom:24px">
+    <p class="chart-title">Every sub-programme: percentage change</p>
+    <p class="chart-sub">Small lines can swing a lot in percentage terms, so read this together with the tables below.</p>
+    <div class="bars" id="chart-basic" role="img" aria-label="Diverging bars showing the percentage change for every basic education sub-programme"></div>
+  </div>
+
+  <div class="two-col" id="basic-cols"></div>
+  <div class="callout">Free Primary Education is KSh 7.0 billion in the Treasury Budget Statement <a href="#src-1">[1]</a> but KSh 16.5 billion in the Budget Brief <a href="#src-3">[3]</a>. The two documents appear to count different things, so the figures should not be combined.</div>
+    <p class="src">Source for all tables in this section: Basic Education Sub-Sector Budget Brief FY2026/27 <a href="#src-3">[3]</a>, pages 6 and 7 as shown under each table. Totals above are the sum of the lines shown. The Budget Brief's printed primary education total for 2026/27 is KSh 22,625 million, which is KSh 59 million lower than the sum of its lines (the adult and continuing education line appears to be left out), so the change shown here is an 11.2% fall against 11.5% in the Brief.</p>
+</div>
+
+<!-- SOURCES -->
+<div class="section section-white" id="sources">
+  <div class="section-hd">
+    <h2>Sources</h2>
+    <span class="meta">Official documents first, then news cross-checks</span>
+  </div>
+  <p class="lede">Every figure on this page can be traced to one of the documents below. Paragraph and page references in the tables point to these sources. Web articles have no page numbers, so their paragraphs are counted from the first body paragraph, leaving out headlines, captions, adverts and "read also" lines.</p>
+  <ol class="src-list" id="src-list"></ol>
+
+  <h3 class="panel-title">Notes where sources differ</h3>
+  <ol class="notes" id="src-notes"></ol>
+</div>
+
+<footer>
+  <strong>EACHRights — East African Centre for Human Rights</strong><br>
+  Supported by <a href="#">OXFAM</a> · Three-Year EDUCATION Advocacy Project (2024–2027)
+</footer>
+
+<script>
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const f1 = n => n.toLocaleString('en-KE',{minimumFractionDigits:1,maximumFractionDigits:1});
+const f0 = n => Math.round(n).toLocaleString('en-KE');
+const sgn = n => (n>0?'+':n<0?'−':'');
+const cls = n => n>0.0001?'up':n<-0.0001?'down':'flat';
+const pctTxt = p => p==null?'n/a':sgn(p)+Math.abs(p*100).toFixed(1)+'%';
+
+// ---------- SOURCES ----------
+const SOURCES = {
+  1:{official:true,title:'National Treasury, Budget Statement FY2026/27 (11 June 2026)',
+     url:'https://treasury.go.ke/sites/default/files/Latest%20updates/Budget_Statement_FY_2026-27_compressed.pdf',
+     desc:'PDF of the speech with numbered paragraphs. Section "Improving Education Outcomes", pages 135 to 138. ¶222 (p.136): total and the five vote heads. ¶223 (pp.136-137): Free Primary, Free Day Secondary, Junior Secondary capitation, examinations, school feeding. ¶224 (p.137): intern conversion and intern programme. ¶225 (pp.137-138): school infrastructure, TVET centres, KPEEL, SEEQIP. ¶226 (p.138): HELB, scholarships, university CBA arrears and ongoing projects.'},
+  2:{official:true,title:'Parliament of Kenya, Budget Day report (13 June 2025)',
+     url:'https://www.parliament.go.ke/node/24052',
+     desc:'Report on the 2025 budget speech; paragraphs counted as body paragraphs. ¶6: education total. ¶7: TSC, including interns. ¶8: Free Day Secondary, Junior Secondary capitation, Free Primary, examinations, school feeding. ¶9: school and TVET infrastructure, HELB, university and TVET scholarships.'},
+  3:{official:true,title:'Kenya\'s Basic Education Sub-Sector Budget Brief FY2026/27 (GI-ESCR)',
+     url:'https://gi-escr.org/images/Kenyas%20Basic%20Education%20Sub-Sector%20Budget%20Brief%20FY2026-2027.pdf',
+     desc:'Sub-programme figures for 2025/26 and 2026/27. Page 6: primary, secondary, quality assurance and standards, general administration. Page 7: governance and standards, and TSC administration.'},
+  4:{title:'Capital FM via AllAfrica (June 2025)',
+     url:'https://allafrica.com/stories/202506130061.html',
+     desc:'News copy used for 2025/26 lines the Parliament report omits. Education coverage is ¶1 to 8. ¶3: TSC and competency-based curriculum training. ¶5: TVET project. ¶6: KPEEL, SEEQIP, research. Original article: <a href="https://www.capitalfm.co.ke/news/2025/06/education-gets-lions-share-in-2024-25-budget-as-agriculture-faces-major-cuts" target="_blank" rel="noopener">capitalfm.co.ke</a>.'},
+  5:{title:'Daily Nation, 27 May 2025: more budget cuts in the education sector',
+     url:'https://nation.africa/kenya/news/education/more-budget-cuts-education-sector-quality-concerns-5058422',
+     desc:'Paywalled. Source of the committee proposals for Higher Education, Basic Education and TVET in 2025/26. Only the first two paragraphs could be opened, so those three figures were taken from the search snippet and the paragraph is not verified.'},
+  6:{title:'The Standard, 11 June 2026: how education took the lion\'s share',
+     url:'https://www.standardmedia.co.ke/education/article/2001550102/how-education-took-lions-share-with-sh7845b-in-2026-27-budget',
+     desc:'News cross-check for 2026/27, 10 paragraphs. All figures it reports match Budget Statement ¶222 to 226.'},
+  7:{title:'Radio47, 11 June 2026: education emerges biggest winner in 2026/27 budget',
+     url:'https://www.radio47.fm/news/education-emerges-biggest-winner-in-2026-27-budget-with-ksh-784-5-billion-32977/',
+     desc:'News cross-check for 2026/27, 7 paragraphs. All figures it reports match Budget Statement ¶224 to 226.'},
+  8:{title:'Capital FM, 11 June 2026: government to spend Sh784.5B on education',
+     url:'https://www.capitalfm.co.ke/news/2026/06/government-to-spend-sh784-5-b-on-education-as-mbadi-rejects-claims-of-budget-cuts/',
+     desc:'News cross-check for 2026/27, 21 paragraphs. Used to confirm the total, the lines in ¶7 to 20 and the comparison with 2021/22.'},
+  9:{title:'The Star, 11 June 2026: education allocation up by Sh81.8B to hit Sh784.5B',
+     url:'https://www.the-star.co.ke/news/2026-06-11-education-allocation-up-by-sh818bn-to-hit-sh7845bn',
+     desc:'News cross-check for 2026/27, 27 paragraphs. ¶1: total and increase of KSh 81.8bn. ¶7: split into TSC, basic, higher, TVET and research. ¶17: TVET centres with last year\'s figure.'}
+};
+const ref = (id,loc) => `<a href="${SOURCES[id].url}" target="_blank" rel="noopener" title="${esc(SOURCES[id].title)}">[${id}]</a>${loc?' '+esc(loc):''}`;
+const srcCell = (a,b) => `<td class="srcs"><b>2025/26:</b> ${a}<br><b>2026/27:</b> ${b}</td>`;
+const NA = '<span class="flat">not reported</span>';
+
+document.getElementById('src-list').innerHTML = Object.entries(SOURCES).map(([id,s])=>
+  `<li id="src-${id}"><span class="sn">[${id}]</span><a class="ttl" href="${s.url}" target="_blank" rel="noopener">${s.title}</a><span class="tag ${s.official?'off':'news'}">${s.official?'Official':'News'}</span><span class="d">${s.desc}</span></li>`).join('');
+
+document.getElementById('src-notes').innerHTML = [
+  '<strong>Official sources.</strong> FY 2026/27 figures are from the National Treasury Budget Statement <a href="#src-1">[1]</a>, with paragraph numbers as printed in the statement. The Treasury\'s FY 2025/26 Budget Statement could not be found or opened, so 2025/26 figures use the Parliament of Kenya report <a href="#src-2">[2]</a> and, where it is silent, Capital FM <a href="#src-4">[4]</a>.',
+  '<strong>Approximate 2025/26 vote heads.</strong> Higher Education (144.7), Basic Education (126.1) and TVET (42.0) for 2025/26 are National Assembly Education Committee proposals from May 2025 <a href="#src-5">[5]</a>, made before the final budget. They are not like for like with the 2026/27 vote heads.',
+  '<strong>TSC in 2025/26.</strong> KSh 387.2 billion is the Treasury speech figure <a href="#src-2">[2]</a>. The committee report quoted by the Daily Nation gives KSh 387.7 billion <a href="#src-5">[5]</a>.',
+  '<strong>Intern teachers.</strong> The 2025/26 KSh 7.2 billion sits inside the TSC allocation <a href="#src-2">[2]</a>, while in 2026/27 KSh 8.2 billion is listed separately <a href="#src-1">[1]</a>, so the two years may not be like for like.',
+  '<strong>Science, Innovation and Research.</strong> The 2025/26 figure (KSh 993 million) is the speech figure reported by Capital FM <a href="#src-4">[4]</a>. The committee report quotes KSh 943 million.',
+  '<strong>The "49%" increase.</strong> The 49% rise quoted by the Treasury is measured against 2021/22 (KSh 526 billion), not against last year <a href="#src-8">[8]</a>. Year on year the rise is 11.6%.',
+  '<strong>Junior secondary capitation.</strong> The Star describes it as unchanged at KSh 30.7 billion <a href="#src-9">[9]</a>, but the 2025/26 figure of KSh 28.9 billion is from the 2025 budget report <a href="#src-2">[2]</a>, which this page uses.'
+].map(t=>`<li>${t}</li>`).join('');
+
+const TOTAL = {a:702.7,b:784.5};
+// [name, 2025/26, 2026/27] KSh bn, optional note, then [source 2025/26, source 2026/27]
+const chg = TOTAL.b-TOTAL.a;
+const LINES = [
+  ['HELB (student loans)',41.5,56.3,'',[ref(2,'¶9'),ref(1,'¶226, p.138')]],
+  ['Free Day Secondary Education',51.9,54.6,'',[ref(2,'¶8'),ref(1,'¶223, p.137')]],
+  ['University scholarships',16.9,30.9,'',[ref(2,'¶9'),ref(1,'¶226, p.138')]],
+  ['Junior Secondary School capitation',28.9,30.7,'',[ref(2,'¶8'),ref(1,'¶223, p.137')]],
+  ['National examinations administration',5.9,9.9,'',[ref(2,'¶8'),ref(1,'¶223, p.137')]],
+  ['TVET scholarships',7.7,9.2,'',[ref(2,'¶9'),ref(1,'¶226, p.138')]],
+  ['Intern teacher programme',7.2,8.2,'2025/26 figure sits inside the TSC allocation',[ref(2,'¶7'),ref(1,'¶224, p.137')]],
+  ['KPEEL (primary equity in learning)',13.3,7.1,'',[ref(4,'¶6'),ref(1,'¶225, p.138')]],
+  ['Free Primary Education',7.0,7.0,'',[ref(2,'¶8'),ref(1,'¶223, pp.136-137')]],
+  ['SEEQIP (secondary education quality improvement)',2.3,4.7,'',[ref(4,'¶6'),ref(1,'¶225, p.138')]],
+  ['School infrastructure (primary and secondary)',1.7,4.1,'',[ref(2,'¶9'),ref(1,'¶225, pp.137-138')]],
+  ['School feeding programme',3.0,3.0,'',[ref(2,'¶8'),ref(1,'¶223, p.137')]],
+  ['TVET centres: construction and equipping',1.4,2.1,'',[ref(2,'¶9'),ref(1,'¶225, p.138')]]
+];
+const VOTES = [
+  ['Teachers Service Commission (TSC)',387.2,424.3,'',[ref(2,'¶7'),ref(1,'¶222, p.136')]],
+  ['Higher Education',144.7,163.9,'approx.',[ref(5),ref(1,'¶222, p.136')]],
+  ['Basic Education',126.1,136.6,'approx.',[ref(5),ref(1,'¶222, p.136')]],
+  ['TVET',42.0,58.5,'approx.',[ref(5),ref(1,'¶222, p.136')]],
+  ['Science, Innovation and Research',0.993,1.3,'',[ref(4,'¶6'),ref(1,'¶222, p.136')]]
+];
+const TOTAL_SRC = [ref(2,'¶6'),ref(1,'¶222, p.136')];
+const ONEYEAR = [
+  ['Conversion of 20,000 intern teachers to permanent terms',null,4.9,[NA,ref(1,'¶224, p.137')]],
+  ['CBA arrears for universities (2021 to 2025 CBA)',null,6.7,[NA,ref(1,'¶226, p.138')]],
+  ['Ongoing projects in universities',null,5.9,[NA,ref(1,'¶226, p.138')]],
+  ['TVET and entrepreneurship project',4.0,null,[ref(4,'¶5'),'not found']],
+  ['Teacher capacity building for the competency-based curriculum',0.98,null,[ref(4,'¶3'),'not found']]
+];
+// KSh (full shillings), 2025/26 then 2026/27. pg = page of the Budget Brief
+const BASIC = [
+  {t:'Primary education',pg:'6',rows:[
+    ['Free Primary Education',17941657706,16495300804],
+    ['Special Needs Education',1047232800,1354721767],
+    ['Early Childhood Development Education',19206374,22772373],
+    ['Primary teachers training and in-service',803809908,771526663],
+    ['Alternative basic adult and continuing education',59011143,59011143],
+    ['School health, nutrition and meals',4900000000,3000000000],
+    ['Expanding education opportunities in ASALs',785000000,980200000]]},
+  {t:'Secondary education',pg:'6',rows:[
+    ['Free Day Secondary Education',85591084562,93317184844],
+    ['Secondary teacher education services',408520983,646265353],
+    ['Secondary teachers in-service education',310824419,224949686],
+    ['Special Needs Education',280000000,271600000]]},
+  {t:'Quality assurance and standards',pg:'6',rows:[
+    ['Curriculum development',995399403,1162787421],
+    ['Examination and certification',12243514317,11770477691],
+    ['Co-curricular activities',1285763272,1364446129]]},
+  {t:'General administration, planning and support',pg:'6',rows:[
+    ['Headquarters administrative services',2328402532,2200972660],
+    ['County administrative services',3672614215,2971670377]]},
+  {t:'Governance and standards',pg:'7',rows:[
+    ['Quality assurance and standards',81750000,3750000],
+    ['Teacher professional development',30093750,65312785],
+    ['Teacher capacity development',980388777,952383225]]},
+  {t:'TSC general administration, planning and support',pg:'7',rows:[
+    ['Policy planning and support services',8335735920,8586151564],
+    ['Field services',231192000,231308000],
+    ['Automation of TSC operations',239710953,237800318]]}
+];
+
+// ---------- CHART HELPERS ----------
+const barVal = (v,max,c,txt) => `<div class="bar-wrap"><div class="bar ${c}" style="width:${v/max*100}%"></div><span class="bar-val" style="left:calc(${v/max*100}% + 6px)">${txt}</span></div>`;
+function pairedChart(id, items, fmt){
+  const max = Math.max(...items.map(r=>Math.max(r.a,r.b)));
+  document.getElementById(id).innerHTML = items.map(r=>
+    `<div class="bar-row"><div class="lbl">${esc(r.name)}</div><div class="bar-track">${barVal(r.a,max,'y25',fmt(r.a))}${barVal(r.b,max,'y26',fmt(r.b))}</div></div>`).join('');
+}
+// diverging chart: items {label, sub, v, txt}; bars scale to the largest absolute value
+function divChart(id, items){
+  const max = Math.max(...items.map(r=>Math.abs(r.v)),1e-9);
+  document.getElementById(id).innerHTML = items.map(r=>{
+    const w = Math.abs(r.v)/max*40;   // leave room for the value label
+    const pos = r.v>0.0001, neg = r.v<-0.0001;
+    const bar = pos?`<i class="p" style="width:${w}%"></i><b class="up" style="left:calc(50% + ${w}% + 6px)">${r.txt}</b>`
+              : neg?`<i class="m" style="width:${w}%"></i><b class="down" style="right:calc(50% + ${w}% + 6px)">${r.txt}</b>`
+              : `<b class="flat" style="left:calc(50% + 6px)">${r.txt}</b>`;
+    return `<div class="div-row"><div class="lbl">${esc(r.label)}${r.sub?`<small>${esc(r.sub)}</small>`:''}</div><div class="div-track">${bar}</div></div>`;
+  }).join('');
+}
+
+// ---------- NATIONAL LINES ----------
+const rows = LINES.map(r=>({name:r[0],a:r[1],b:r[2],note:r[3]||'',src:r[4],d:r[2]-r[1],p:(r[2]-r[1])/r[1]}));
+const maxD = Math.max(...rows.map(r=>Math.abs(r.d)));
+function renderLines(sort){
+  const s=[...rows].sort((x,y)=> sort==='chg'?y.d-x.d : sort==='pct'?y.p-x.p : y.b-x.b);
+  document.getElementById('lines-body').innerHTML = s.map(r=>{
+    const w=Math.abs(r.d)/maxD*50;
+    const bar = r.d>0.0001?`<i class="p" style="width:${w}%"></i>`:r.d<-0.0001?`<i class="m" style="width:${w}%"></i>`:'';
+    return `<tr><td>${esc(r.name)}${r.note?`<span class="badge" title="${esc(r.note)}">see note</span>`:''}</td>
+      <td class="n">${f1(r.a)}</td><td class="n">${f1(r.b)}</td>
+      <td class="n ${cls(r.d)}">${sgn(r.d)}${f1(Math.abs(r.d))}</td>
+      <td class="n ${cls(r.d)}">${pctTxt(r.p)}</td>
+      <td><div class="dv">${bar}</div></td>
+      ${srcCell(r.src[0],r.src[1])}</tr>`;
+  }).join('');
+}
+renderLines('v26');
+document.querySelectorAll('.sort-tools button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.sort-tools button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  renderLines(b.dataset.sort);
+}));
+
+// charts: lines
+pairedChart('chart-lines',[...rows].sort((x,y)=>y.b-x.b),f1);
+divChart('chart-lines-chg',[...rows].sort((x,y)=>y.d-x.d).map(r=>({label:r.name,v:r.d,txt:(r.d===0?'0.0':sgn(r.d)+f1(Math.abs(r.d)))})));
+
+document.getElementById('votes-body').innerHTML =
+  `<tr class="total"><td>Total education sector</td><td class="n">${f1(TOTAL.a)}</td><td class="n">${f1(TOTAL.b)}</td><td class="n up">+${f1(chg)}</td><td class="n up">${pctTxt(chg/TOTAL.a)}</td>${srcCell(TOTAL_SRC[0],TOTAL_SRC[1])}</tr>` +
+  VOTES.map(r=>{const d=r[2]-r[1];const sci=r[0].startsWith('Science');const fm=x=>sci?x.toFixed(3):f1(x);
+    return `<tr><td>${esc(r[0])}${r[3]?`<span class="badge">${esc(r[3])}</span>`:''}</td><td class="n">${fm(r[1])}</td><td class="n">${fm(r[2])}</td><td class="n ${cls(d)}">${sgn(d)}${fm(Math.abs(d))}</td><td class="n ${cls(d)}">${pctTxt(d/r[1])}</td>${srcCell(r[4][0],r[4][1])}</tr>`;}).join('');
+
+// charts: vote heads
+pairedChart('chart-votes',VOTES.map(r=>({name:r[0]+(r[3]?' (approx.)':''),a:r[1],b:r[2]})).concat([]),
+  x=>x<10?x.toFixed(x<2?3:1):f1(x));
+(function(){
+  const colors = ['#1A6E3C','#B25A0E','#41524a','#5b7fa6','#8a6d3b'];
+  const sum = VOTES.reduce((s,r)=>s+r[2],0);
+  document.getElementById('votes-sub').textContent = 'Share of the five vote heads, KSh '+f1(sum)+' billion in total (the Treasury total is KSh '+f1(TOTAL.b)+' billion; the small gap is rounding).';
+  document.getElementById('votes-split').innerHTML = VOTES.map((r,i)=>{const p=r[2]/sum*100;return `<div style="width:${p}%;background:${colors[i]}" title="${esc(r[0])}">${p>=6?p.toFixed(1)+'%':''}</div>`;}).join('');
+  document.getElementById('votes-key').innerHTML = VOTES.map((r,i)=>`<div class="key-item"><i style="background:${colors[i]}"></i><div>${esc(r[0])}: KSh ${r[2]<10?r[2].toFixed(1):f1(r[2])} bn<span>${(r[2]/sum*100).toFixed(1)}% of the five vote heads</span></div></div>`).join('');
+})();
+
+document.getElementById('oneyear-body').innerHTML = ONEYEAR.map(r=>
+  `<tr><td>${esc(r[0])}</td><td class="n">${r[1]==null?'—':f1(r[1])}</td><td class="n">${r[2]==null?'—':f1(r[2])}</td>${srcCell(r[3][0],r[3][1])}</tr>`).join('');
+
+// ---------- BASIC EDUCATION ----------
+document.getElementById('basic-cols').innerHTML = BASIC.map(g=>{
+  const ta=g.rows.reduce((s,r)=>s+r[1],0), tb=g.rows.reduce((s,r)=>s+r[2],0);
+  const line=(n,a,b,tot)=>{const p=(b-a)/a;return `<tr class="${tot?'total':''}"><td>${esc(n)}</td><td class="n">${f0(a/1e6)}</td><td class="n">${f0(b/1e6)}</td><td class="n ${cls(p)}">${pctTxt(p)}</td></tr>`;};
+  return `<div><h3 style="font-size:17px;margin-bottom:8px">${esc(g.t)}</h3><p class="grp-src">Source: <a href="#src-3">[3]</a> Budget Brief, page ${g.pg}</p><div class="tbl-wrap"><table class="policy-table"><thead><tr><th>Sub-programme</th><th class="n">2025/26</th><th class="n">2026/27</th><th class="n">Change</th></tr></thead><tbody>${g.rows.map(r=>line(r[0],r[1],r[2])).join('')}${line('Total',ta,tb,true)}</tbody></table></div></div>`;
+}).join('');
+
+// charts: basic education
+(function(){
+  const pt = p => sgn(p)+Math.abs(p*100).toFixed(1)+'%';
+  const groups = BASIC.map(g=>{const a=g.rows.reduce((s,r)=>s+r[1],0),b=g.rows.reduce((s,r)=>s+r[2],0);return {label:g.t,v:(b-a)/a,txt:pt((b-a)/a)};});
+  divChart('chart-groups',groups);
+  const all = [];
+  BASIC.forEach(g=>g.rows.forEach(r=>all.push({label:r[0],sub:g.t,a:r[1],b:r[2],d:r[2]-r[1],p:(r[2]-r[1])/r[1]})));
+  const byD = [...all].sort((x,y)=>x.d-y.d);
+  const cuts = byD.filter(r=>r.d<0).slice(0,5), ups = byD.filter(r=>r.d>0).slice(-5).reverse();
+  const mTxt = d => sgn(d)+f0(Math.abs(d)/1e6)+' m';
+  divChart('chart-top',ups.concat(cuts).map(r=>({label:r.label,sub:r.sub,v:r.d,txt:mTxt(r.d)})));
+  divChart('chart-basic',[...all].sort((x,y)=>y.p-x.p).map(r=>({label:r.label,sub:r.sub,v:r.p,txt:pt(r.p)})));
+})();
+
+
+// ---------- KEY FIGURES ----------
+(function(){
+  const worst=[...rows].sort((x,y)=>x.d-y.d)[0];
+  const k=[
+    {v:f1(TOTAL.b),u:'KSh bn',l:'Total education budget, FY 2026/27'},
+    {v:'+'+f1(chg),u:'KSh bn',l:'Up '+(chg/TOTAL.a*100).toFixed(1)+'% on FY 2025/26 ('+f1(TOTAL.a)+' bn)',c:'up'},
+    {v:(VOTES[0][2]/TOTAL.b*100).toFixed(1)+'%',u:'',l:'Share going to the Teachers Service Commission'},
+    {v:sgn(worst.d)+f1(Math.abs(worst.d)),u:'KSh bn',l:'Largest line cut: '+worst.name,c:'down'}
+  ];
+  document.getElementById('kpis').innerHTML=k.map(x=>`<div class="kpi"><div class="kpi-v ${x.c||''}">${x.v}${x.u?`<small>${x.u}</small>`:''}</div><div class="kpi-l">${esc(x.l)}</div></div>`).join('');
+})();
+
+// Make every [n] reference open its source document directly in a new tab
+document.querySelectorAll('a[href^="#src-"]').forEach(a=>{
+  const id=a.getAttribute('href').slice(5);
+  if(SOURCES[id]){a.href=SOURCES[id].url;a.target='_blank';a.rel='noopener';a.title=SOURCES[id].title;}
+});
+</script>
+</body>
+</html>
